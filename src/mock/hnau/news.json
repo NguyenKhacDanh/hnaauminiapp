@@ -1,0 +1,44 @@
+{
+  "news": [
+    {
+      "id": "n-1",
+      "title": "Khai giảng khóa Lập trình Web Fullstack - Tháng 2/2026",
+      "type": "Khai giảng",
+      "tags": ["HNAAu", "CNTT"],
+      "summary": "Khai giảng khóa Fullstack vào ngày 10/02/2026. Ưu đãi giảm 10% cho đăng ký sớm. Học thực tế với dự án thực tế.",
+      "content": "Chi tiết chương trình học, lịch học và ưu đãi đặc biệt dành cho học viên đăng ký sớm.",
+      "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop",
+      "publishedAt": "2026-01-20"
+    },
+    {
+      "id": "n-2",
+      "title": "Workshop Thiết kế UI/UX miễn phí - Trải nghiệm thực tế",
+      "type": "Workshop",
+      "tags": ["HNAAu", "Thiết kế"],
+      "summary": "Tham gia workshop để trải nghiệm thiết kế UI/UX thực tế cùng giảng viên chuyên nghiệp.",
+      "content": "Thông tin đăng ký workshop miễn phí, giới hạn 30 học viên.",
+      "imageUrl": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&auto=format&fit=crop",
+      "publishedAt": "2026-01-15"
+    },
+    {
+      "id": "n-3",
+      "title": "Ưu đãi học phí 15% - Chương trình tháng 2",
+      "type": "Ưu đãi",
+      "tags": ["HNAAu", "Khuyến mãi"],
+      "summary": "Giảm ngay 15% học phí cho tất cả khóa học khi đăng ký trong tháng 2/2026.",
+      "content": "Áp dụng cho tất cả khóa học, không giới hạn số lượng.",
+      "imageUrl": "https://images.unsplash.com/photo-1607703703520-bb638e84caf2?w=800&auto=format&fit=crop",
+      "publishedAt": "2026-01-25"
+    },
+    {
+      "id": "n-4",
+      "title": "Ra mắt khóa học Data Science & AI mới nhất",
+      "type": "Khai giảng",
+      "tags": ["HNAAu", "CNTT", "AI"],
+      "summary": "Khóa học mới về Data Science và AI, khai giảng tháng 3/2026.",
+      "content": "Học từ cơ bản đến nâng cao với dự án thực tế.",
+      "imageUrl": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop",
+      "publishedAt": "2026-01-28"
+    }
+  ]
+}

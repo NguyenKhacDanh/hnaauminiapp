@@ -8,26 +8,67 @@
 
   --color-ng-10: 247 247 248; // #F7F7F8
 
-  --color-primary-rgb: 242 87 48; // #F25730
-  --color-primary: #F25730;
-  --color-primary-pressed: #BF4526;
+  /* Brand: Hướng Nghiệp Á Âu - Màu xanh dương chủ đạo */
+  --color-primary-rgb: 0 82 156; // #00529C - Màu xanh dương
+  --color-primary: #00529C;
+  --color-primary-pressed: #003D75;
   --color-primary-foreground: #ffffff;
-  --color-inactive: #6F7071;
-  --color-inactive-foreground: #ffffff;
-  --color-border: #e5e5e5;
-  --color-text: #0D0D0D;
-  --color-text-secondary: #767A7F;
-  --color-text-subtle: #6F7071;
-  --color-divider: rgba(0, 0, 0, 0.05);
-  --color-background: #ffffff;
+  --color-secondary: #F37021; // Màu cam phụ
+  --color-inactive: #9CA3AF;
+  --color-inactive-foreground: #6B7280;
+  --color-border: #E5E7EB;
+  --color-text: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-subtle: #9CA3AF;
+  --color-divider: rgba(0, 82, 156, 0.1);
+  --color-background: #F8FAFC;
 }
 
 html, body {
-  background-color: #F7F8FA;
+  background-color: #F8FAFC;
   user-select: none;
   --inset-top: var(--zaui-safe-area-inset-top, 0px);
   --inset-bottom: var(--zaui-safe-area-inset-bottom, 0px);
-  color: var(--color-text)
+  color: var(--color-text);
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  width: 100%;
+  position: relative;
+}
+
+#app {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Remove default link underlines */
+a {
+  text-decoration: none;
+}
+
+button {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove button default styles */
+button:focus {
+  outline: none;
+}
+
+/* Prevent horizontal scroll */
+.zaui-page {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.zaui-page-content {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .inset-top {

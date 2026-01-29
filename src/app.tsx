@@ -9,6 +9,13 @@ import MerchantRootPage from './pages/menu'
 import MerchantOrdersPage from './pages/orders'
 import MerchantOrdersViewPage from './pages/orders.view'
 
+// HNAAu pages (exported via barrel to avoid import-extension issues)
+import { HnauHome, HnauCourses, HnauNotifications, HnauBranches, HnauAccount, HnauCourseDetail, HnauRegister, HnauSessions, HnauNewsDetail, HnauSearch } from './pages/hnau-pages'
+import HnauAdmissions from './pages/admissions.hnau'
+import HnauSchedule from './pages/schedule.hnau'
+import HnauVouchers from './pages/vouchers.hnau'
+import HnauMyCourses from './pages/my-courses.hnau'
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -26,10 +33,24 @@ const MyApp = () => {
             <RootProvider>
               <ZMPRouter>
                 <AnimationRoutes>
-                  <Route path="/" element={<MerchantRootPage />} />
-                  <Route path="/orders" element={<MerchantOrdersPage />} />
-                  <Route path="/orders/view" element={<MerchantOrdersViewPage />} />
-                  <Route path="/info" element={<MerchantInfoPage />} />
+                  {/* HNAAu app routes only */}
+                  <Route path="/" element={<HnauHome />} />
+                  {/* HNAAu routes (mock-driven UI) */}
+                  <Route path="/hnau" element={<HnauHome />} />
+                  <Route path="/hnau/courses" element={<HnauCourses />} />
+                  <Route path="/hnau/notifications" element={<HnauNotifications />} />
+                  <Route path="/hnau/branches" element={<HnauBranches />} />
+                  <Route path="/hnau/sessions" element={<HnauSessions />} />
+                  <Route path="/hnau/course/:id" element={<HnauCourseDetail />} />
+                  <Route path="/hnau/news/:id" element={<HnauNewsDetail />} />
+                  <Route path="/hnau/news" element={<HnauNotifications />} />
+                  <Route path="/hnau/admissions" element={<HnauAdmissions />} />
+                  <Route path="/hnau/schedule" element={<HnauSchedule />} />
+                  <Route path="/hnau/vouchers" element={<HnauVouchers />} />
+                  <Route path="/hnau/my-courses" element={<HnauMyCourses />} />
+                  <Route path="/hnau/search" element={<HnauSearch />} />
+                  <Route path="/hnau/register" element={<HnauRegister />} />
+                  <Route path="/hnau/account" element={<HnauAccount />} />
                 </AnimationRoutes>
               </ZMPRouter>
             </RootProvider>

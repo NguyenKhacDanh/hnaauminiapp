@@ -1,0 +1,11 @@
+{
+  "academies": [
+    {
+      "id": "hnau",
+      "name": "HNAAu",
+      "region": "Hà Nội",
+      "description": "Học viện HNAAu - Đào tạo CNTT & Thiết kế",
+      "coverUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop"
+    }
+  ]
+}

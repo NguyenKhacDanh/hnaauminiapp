@@ -1,0 +1,46 @@
+{
+  "branches": [
+    {
+      "id": "hn-hq",
+      "name": "Cơ sở Hà Nội",
+      "address": "Số 1, Tràng Thi, Hoàn Kiếm, Hà Nội",
+      "phone": "+84 24 1234 5678"
+    },
+    {
+      "id": "hcm-q1",
+      "name": "Cơ sở TP. HCM - Quận 1",
+      "address": "12 Nguyễn Huệ, Quận 1, TP. HCM",
+      "phone": "+84 28 1234 5678"
+    },
+    {
+      "id": "hcm-q3",
+      "name": "Cơ sở TP. HCM - Quận 3",
+      "address": "259B Hai Bà Trưng, Quận 3, TP. HCM",
+      "phone": "+84 28 2345 6789"
+    },
+    {
+      "id": "hcm-tp",
+      "name": "Cơ sở TP. HCM - Tân Phú",
+      "address": "140 Lê Trọng Tấn, Quận Tân Phú, TP. HCM",
+      "phone": "+84 28 3456 7890"
+    },
+    {
+      "id": "dn",
+      "name": "Cơ sở Đà Nẵng",
+      "address": "148 Điện Biên Phủ, Quận Thanh Khê, Đà Nẵng",
+      "phone": "+84 236 123 4567"
+    },
+    {
+      "id": "ct",
+      "name": "Cơ sở Cần Thơ",
+      "address": "139 Nguyễn Văn Cừ, Quận Ninh Kiều, Cần Thơ",
+      "phone": "+84 292 123 4567"
+    },
+    {
+      "id": "bd",
+      "name": "Cơ sở Bình Dương",
+      "address": "Số 45 Đại lộ Bình Dương, TP. Thủ Dầu Một, Bình Dương",
+      "phone": "+84 274 123 4567"
+    }
+  ]
+}

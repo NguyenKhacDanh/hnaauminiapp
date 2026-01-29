@@ -1,0 +1,46 @@
+{
+  "sessions": [
+    {
+      "id": "s-1",
+      "courseId": "c-101",
+      "startDate": "2026-02-10",
+      "location": "Cơ sở Hà Nội",
+      "format": "Online/Offline"
+    },
+    {
+      "id": "s-2",
+      "courseId": "c-102",
+      "startDate": "2026-03-01",
+      "location": "Cơ sở Hà Nội",
+      "format": "Offline"
+    },
+    {
+      "id": "s-3",
+      "courseId": "c-101",
+      "startDate": "2026-02-15",
+      "location": "Cơ sở TP. Hồ Chí Minh",
+      "format": "Offline"
+    },
+    {
+      "id": "s-4",
+      "courseId": "c-101",
+      "startDate": "2026-02-20",
+      "location": "Cơ sở Đà Nẵng",
+      "format": "Offline"
+    },
+    {
+      "id": "s-5",
+      "courseId": "c-102",
+      "startDate": "2026-03-05",
+      "location": "Cơ sở Cần Thơ",
+      "format": "Offline"
+    },
+    {
+      "id": "s-6",
+      "courseId": "c-102",
+      "startDate": "2026-03-10",
+      "location": "Cơ sở Bình Dương",
+      "format": "Offline"
+    }
+  ]
+}
