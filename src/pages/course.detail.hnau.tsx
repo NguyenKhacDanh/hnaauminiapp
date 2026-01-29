@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Page, useNavigate, Icon, Modal, Box, Button } from 'zmp-ui'
+import { Page, useNavigate, Icon } from 'zmp-ui'
 import { useParams } from 'react-router-dom'
-import { PageContainer } from '@/components'
+import { PageContainer, PaymentModal } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
 import { openChat } from 'zmp-sdk/apis'
 
@@ -387,113 +387,21 @@ export default function HnauCourseDetail() {
       <HnauTabs activeTab="courses" />
 
       {/* ===== PAYMENT MODAL ===== */}
-      <Modal
+      <PaymentModal
         visible={showPaymentModal}
-        title="Thanh toán khóa học"
         onClose={() => {
           setShowPaymentModal(false)
           setPaymentStatus('pending')
         }}
-        verticalActions
-      >
-        <Box className="text-center p-4">
-          {paymentStatus === 'pending' && (
-            <>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                {course?.ChuongTrinh}
-              </h3>
-              <div className="text-2xl font-bold text-[#005EB8] mb-4">
-                {course?.TuitionFee?.toLocaleString('vi-VN')} VNĐ
-              </div>
-              
-              {/* QR Code */}
-              <div className="bg-white rounded-xl p-4 mb-4 shadow-sm border-2 border-gray-100">
-                <img 
-                  src={generateQRCode()} 
-                  alt="QR Code thanh toán" 
-                  className="w-full max-w-[280px] mx-auto"
-                />
-              </div>
-
-              <div className="bg-blue-50 rounded-lg p-3 mb-4 text-left">
-                <p className="text-xs text-gray-600 mb-2">
-                  <strong>Hướng dẫn:</strong>
-                </p>
-                <ol className="text-xs text-gray-700 space-y-1 ml-4 list-decimal">
-                  <li>Mở app Ngân hàng của bạn</li>
-                  <li>Quét mã QR phía trên</li>
-                  <li>Kiểm tra thông tin và xác nhận thanh toán</li>
-                  <li>Nhấn "Kiểm tra thanh toán" bên dưới</li>
-                </ol>
-              </div>
-
-              <Button
-                fullWidth
-                variant="primary"
-                onClick={checkPaymentStatus}
-                loading={checkingPayment}
-                disabled={checkingPayment}
-              >
-                {checkingPayment ? 'Đang kiểm tra...' : 'Kiểm tra thanh toán'}
-              </Button>
-            </>
-          )}
-
-          {paymentStatus === 'success' && (
-            <div className="py-4">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon icon="zi-check-circle" size={48} className="text-green-500" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Thanh toán thành công!
-              </h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Bạn đã đăng ký khóa học thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất.
-              </p>
-              <Button
-                fullWidth
-                variant="primary"
-                onClick={() => {
-                  setShowPaymentModal(false)
-                  navigate('/hnau/courses')
-                }}
-              >
-                Về trang khóa học
-              </Button>
-            </div>
-          )}
-
-          {paymentStatus === 'failed' && (
-            <div className="py-4">
-              <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon icon="zi-close-circle" size={48} className="text-red-500" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Chưa nhận được thanh toán
-              </h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Vui lòng kiểm tra lại hoặc thử quét mã QR một lần nữa.
-              </p>
-              <div className="flex gap-2">
-                <Button
-                  fullWidth
-                  variant="secondary"
-                  onClick={() => setPaymentStatus('pending')}
-                >
-                  Thử lại
-                </Button>
-                <Button
-                  fullWidth
-                  variant="primary"
-                  onClick={handleContact}
-                >
-                  Liên hệ hỗ trợ
-                </Button>
-              </div>
-            </div>
-          )}
-        </Box>
-      </Modal>
+        courseName={course?.ChuongTrinh || ''}
+        tuitionFee={course?.TuitionFee || 0}
+        qrCodeUrl={generateQRCode()}
+        paymentStatus={paymentStatus}
+        checkingPayment={checkingPayment}
+        onCheckPayment={checkPaymentStatus}
+        onRetry={() => setPaymentStatus('pending')}
+        onContact={handleContact}
+      />
     </Page>
   )
 }
