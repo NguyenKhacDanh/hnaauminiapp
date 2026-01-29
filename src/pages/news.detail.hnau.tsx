@@ -1,11 +1,12 @@
 import React from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { useParams } from 'react-router-dom'
 import { PageContainer } from '@/components'
 import newsData from '@/mock/hnau/news.json'
 import { openChat } from 'zmp-sdk/apis'
 
 export default function HnauNewsDetail() {
+  const navigate = useNavigate()
   const { id } = useParams()
   const item = newsData.news.find((n: any) => n.id === id)
 
@@ -28,9 +29,12 @@ export default function HnauNewsDetail() {
           <div className="p-4 text-center">
             <Icon icon="zi-notif" size={48} className="text-gray-400 mb-2" />
             <p className="text-gray-500">Tin tức không tồn tại</p>
-            <a href="/hnau" className="inline-block mt-4 text-primary font-semibold">
+            <button 
+              onClick={() => navigate('/hnau')} 
+              className="inline-block mt-4 text-primary font-semibold bg-transparent border-0 active:opacity-70 transition"
+            >
               ← Quay về trang chủ
-            </a>
+            </button>
           </div>
         </PageContainer>
       </Page>
@@ -42,9 +46,12 @@ export default function HnauNewsDetail() {
       <PageContainer>
         <div className="bg-gradient-to-r from-[#F37021] to-[#FF8C42] px-4 pt-6 pb-8 -mx-4 -mt-4 mb-4">
           <div className="flex items-center gap-3">
-            <a href="/hnau" className="text-white">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="text-white bg-transparent border-0 active:opacity-70 transition"
+            >
               <Icon icon="zi-arrow-left" size={24} />
-            </a>
+            </button>
             <div className="text-sm text-white/90">Chi tiết tin tức</div>
           </div>
         </div>

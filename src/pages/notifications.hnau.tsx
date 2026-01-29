@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
 import newsData from '@/mock/hnau/news.json'
 
 export default function HnauNotifications() {
+  const navigate = useNavigate()
   const [filter, setFilter] = useState<string>('all')
   const notifications = newsData.news as any[]
 
@@ -51,10 +52,10 @@ export default function HnauNotifications() {
             {filteredNotifs.map((n, index) => {
               const typeInfo = types.find(t => t.key === n.type) || types[0]
               return (
-                <a
+                <button
                   key={n.id}
-                  href={`/hnau/news/${n.id}`}
-                  className="block bg-white rounded-xl shadow-sm p-3.5 active:opacity-80 transition"
+                  onClick={() => navigate(`/hnau/news/${n.id}`)}
+                  className="block bg-white rounded-xl shadow-sm p-3.5 active:opacity-80 transition w-full text-left border-0"
                 >
                   <div className="flex gap-3">
                     {/* Icon/Badge */}
@@ -99,7 +100,7 @@ export default function HnauNotifications() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               )
             })}
           </div>

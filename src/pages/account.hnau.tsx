@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useState } from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
 import { openChat, followOA } from 'zmp-sdk/apis'
@@ -15,6 +15,7 @@ interface Profile {
 }
 
 export default function HnauAccount() {
+  const navigate = useNavigate()
   const [profile, setProfile] = useState<Profile>({ name: '', phone: '', email: '' })
   const [saved, setSaved] = useState(false)
   const orders = ordersData.data as any[]
@@ -158,15 +159,21 @@ export default function HnauAccount() {
           </div>
 
           <div className="bg-white rounded-xl shadow-sm overflow-hidden mb-3">
-            <a href="/hnau/account" className="flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100">
+            <button 
+              onClick={() => navigate('/hnau/account')} 
+              className="w-full flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100 text-left bg-transparent border-0"
+            >
               <div className="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon icon="zi-user" size={18} className="text-[#005EB8]" />
               </div>
               <span className="flex-1 text-sm font-medium text-gray-800">Chỉnh sửa thông tin</span>
               <Icon icon="zi-chevron-right" size={18} className="text-gray-400" />
-            </a>
+            </button>
 
-            <a href="/hnau/orders" className="flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100">
+            <button 
+              onClick={() => navigate('/hnau/orders')} 
+              className="w-full flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100 text-left bg-transparent border-0"
+            >
               <div className="w-9 h-9 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon icon="zi-list-1" size={18} className="text-green-600" />
               </div>
@@ -175,17 +182,20 @@ export default function HnauAccount() {
                 <div className="text-xs text-gray-500">Xem tất cả</div>
               </div>
               <Icon icon="zi-chevron-right" size={18} className="text-gray-400" />
-            </a>
+            </button>
 
-            <a href="/hnau/sessions" className="flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100">
+            <button 
+              onClick={() => navigate('/hnau/sessions')} 
+              className="w-full flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100 text-left bg-transparent border-0"
+            >
               <div className="w-9 h-9 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon icon="zi-calendar" size={18} className="text-purple-600" />
               </div>
               <span className="flex-1 text-sm font-medium text-gray-800">Lịch chiêu sinh</span>
               <Icon icon="zi-chevron-right" size={18} className="text-gray-400" />
-            </a>
+            </button>
 
-            <button onClick={handleOpenChat} className="w-full flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100 text-left bg-transparent">
+            <button onClick={handleOpenChat} className="w-full flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition border-b border-gray-100 text-left bg-transparent border-0">
               <div className="w-9 h-9 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon icon="zi-chat" size={18} className="text-green-600" />
               </div>
@@ -193,13 +203,16 @@ export default function HnauAccount() {
               <Icon icon="zi-chevron-right" size={18} className="text-gray-400" />
             </button>
 
-            <a href="/hnau/branches" className="flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition">
+            <button 
+              onClick={() => navigate('/hnau/branches')} 
+              className="w-full flex items-center gap-3 px-4 py-3 active:bg-gray-50 transition text-left bg-transparent border-0"
+            >
               <div className="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon icon="zi-location" size={18} className="text-orange-600" />
               </div>
               <span className="flex-1 text-sm font-medium text-gray-800">Sổ địa chỉ</span>
               <Icon icon="zi-chevron-right" size={18} className="text-gray-400" />
-            </a>
+            </button>
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-4 mb-3">
@@ -231,9 +244,12 @@ export default function HnauAccount() {
                 <Icon icon="zi-clock-1" size={16} className="text-[#005EB8]" />
                 Đơn hàng gần đây
               </h3>
-              <a href="/hnau/orders" className="text-[#005EB8] text-xs font-semibold">
+              <button 
+                onClick={() => navigate('/hnau/orders')} 
+                className="text-[#005EB8] text-xs font-semibold bg-transparent border-0 active:opacity-70 transition"
+              >
                 Xem tất cả
-              </a>
+              </button>
             </div>
             
             <div className="space-y-2.5">

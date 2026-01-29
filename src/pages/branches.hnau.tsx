@@ -24,7 +24,7 @@ export default function HnauBranches() {
           </div>
         </section>
       </PageContainer>
-      <HnauTabs activeTab="branches" />
+      <HnauTabs activeTab="account" />
     </Page>
   )
 }

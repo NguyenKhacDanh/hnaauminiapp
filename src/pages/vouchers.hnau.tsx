@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 
 export default function HnauVouchers() {
+  const navigate = useNavigate()
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
   const vouchers = [
@@ -65,9 +66,12 @@ export default function HnauVouchers() {
         {/* ===== HEADER ===== */}
         <div className="bg-gradient-to-br from-[#00529C] to-[#0066CC] px-4 pt-6 pb-8 -mx-4 -mt-4 mb-4">
           <div className="flex items-center gap-3 mb-2">
-            <a href="/hnau/account" className="text-white">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="text-white bg-transparent border-0 active:opacity-70 transition"
+            >
               <Icon icon="zi-arrow-left" size={24} />
-            </a>
+            </button>
             <h2 className="text-2xl font-bold text-white flex-1">Voucher ưu đãi</h2>
           </div>
           <p className="text-white/90 text-sm ml-10">Mã giảm giá và ưu đãi đặc biệt</p>
@@ -153,12 +157,12 @@ export default function HnauVouchers() {
                       <Icon icon="zi-clock-1" size={12} />
                       HSD: {voucher.expiry}
                     </div>
-                    <a
-                      href="/hnau/courses"
-                      className="text-[#00529C] text-sm font-semibold"
+                    <button
+                      onClick={() => navigate('/hnau/courses')}
+                      className="text-[#00529C] text-sm font-semibold bg-transparent border-0 active:opacity-70 transition"
                     >
                       Sử dụng ngay →
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -168,9 +172,12 @@ export default function HnauVouchers() {
           {/* ===== FOOTER NOTE ===== */}
           <div className="mt-6 text-center text-xs text-gray-500">
             <p>Điều khoản và điều kiện áp dụng</p>
-            <a href="/hnau/account" className="text-[#00529C] font-semibold">
+            <button 
+              onClick={() => navigate('/hnau/account')} 
+              className="text-[#00529C] font-semibold bg-transparent border-0 active:opacity-70 transition"
+            >
               Xem chi tiết
-            </a>
+            </button>
           </div>
         </section>
       </PageContainer>

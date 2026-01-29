@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react'
-import { Page } from 'zmp-ui'
+import { Page, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import sessionsData from '@/mock/hnau/sessions.json'
 import coursesData from '@/mock/hnau/courses.json'
 import { HnauTabs } from '@/components/hnau-tabs'
 
 export default function HnauSessions() {
+  const navigate = useNavigate()
   const [q, setQ] = useState('')
   const [format, setFormat] = useState('')
   const [location, setLocation] = useState('')
@@ -35,14 +36,19 @@ export default function HnauSessions() {
                 <div key={s.id} className="p-3 bg-white rounded-md">
                   <div className="font-medium">{c?.title}</div>
                   <div className="text-sm text-muted">{s.startDate} · {s.location} · {s.format}</div>
-                  <a href={`/hnau/course/${c?.id}`} className="mt-2 inline-block text-primary">Xem chi tiết & đăng ký</a>
+                  <button 
+                    onClick={() => navigate(`/hnau/course/${c?.id}`)} 
+                    className="mt-2 inline-block text-primary bg-transparent border-0 active:opacity-70 transition"
+                  >
+                    Xem chi tiết & đăng ký
+                  </button>
                 </div>
               )
             })}
           </div>
         </div>
       </PageContainer>
-  <HnauTabs activeTab="branches" />
+      <HnauTabs activeTab="account" />
     </Page>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import coursesData from '@/mock/hnau/courses.json'
 
 export default function HnauMyCourses() {
+  const navigate = useNavigate()
   // Mock data khóa học đã mua
   const myCourses = [
     {
@@ -26,9 +27,12 @@ export default function HnauMyCourses() {
         {/* ===== HEADER ===== */}
         <div className="bg-gradient-to-br from-[#00529C] to-[#0066CC] px-4 pt-6 pb-8 -mx-4 -mt-4 mb-4">
           <div className="flex items-center gap-3 mb-2">
-            <a href="/hnau/account" className="text-white">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="text-white bg-transparent border-0 active:opacity-70 transition"
+            >
               <Icon icon="zi-arrow-left" size={24} />
-            </a>
+            </button>
             <h2 className="text-2xl font-bold text-white flex-1">Khóa học của tôi</h2>
           </div>
           <p className="text-white/90 text-sm ml-10">Quản lý các khóa học đã đăng ký</p>
@@ -41,12 +45,12 @@ export default function HnauMyCourses() {
                 <Icon icon="zi-star" size={32} className="text-gray-400" />
               </div>
               <p className="text-gray-500 mb-4">Bạn chưa đăng ký khóa học nào</p>
-              <a
-                href="/hnau/courses"
-                className="inline-block bg-[#00529C] text-white px-6 py-3 rounded-lg font-semibold"
+              <button
+                onClick={() => navigate('/hnau/courses')}
+                className="inline-block bg-[#00529C] text-white px-6 py-3 rounded-lg font-semibold border-0 active:opacity-80 transition"
               >
                 Khám phá khóa học
-              </a>
+              </button>
             </div>
           ) : (
             <div className="space-y-4">

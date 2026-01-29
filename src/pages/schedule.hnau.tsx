@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import { openChat } from 'zmp-sdk/apis'
 
 export default function HnauSchedule() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -60,9 +61,12 @@ export default function HnauSchedule() {
         {/* ===== HEADER ===== */}
         <div className="bg-gradient-to-br from-[#00529C] to-[#0066CC] px-4 pt-6 pb-8 -mx-4 -mt-4 mb-4">
           <div className="flex items-center gap-3 mb-2">
-            <a href="/hnau" className="text-white">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="text-white bg-transparent border-0 active:opacity-70 transition"
+            >
               <Icon icon="zi-arrow-left" size={24} />
-            </a>
+            </button>
             <h2 className="text-2xl font-bold text-white flex-1">Đặt lịch</h2>
           </div>
           <p className="text-white/90 text-sm ml-10">Đặt lịch tư vấn hoặc tham quan</p>

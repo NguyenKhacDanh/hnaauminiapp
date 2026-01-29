@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
 import coursesData from '@/mock/hnau/courses.json'
 import sessionsData from '@/mock/hnau/sessions.json'
 
 export default function HnauCourses() {
+  const navigate = useNavigate()
   const [filter, setFilter] = useState<string>('all')
   const courses = coursesData.courses as any[]
 
@@ -47,10 +48,10 @@ export default function HnauCourses() {
             {filteredCourses.map(c => {
               const firstSession = (sessionsData.sessions as any[]).find(s => s.courseId === c.id)
               return (
-                <a 
+                <button 
                   key={c.id} 
-                  href={`/hnau/course/${c.id}`}
-                  className="block bg-white rounded-xl shadow-sm overflow-hidden active:opacity-80 transition"
+                  onClick={() => navigate(`/hnau/course/${c.id}`)}
+                  className="block bg-white rounded-xl shadow-sm overflow-hidden active:opacity-80 transition w-full text-left border-0 p-0"
                 >
                   <div className="flex gap-3 p-3">
                     <div className="relative w-24 h-24 flex-shrink-0">
@@ -105,7 +106,7 @@ export default function HnauCourses() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               )
             })}
           </div>

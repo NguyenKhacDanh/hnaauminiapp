@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
 import { openChat } from 'zmp-sdk/apis'
@@ -10,6 +10,7 @@ import coursesData from '@/mock/hnau/courses.json'
 import sessionsData from '@/mock/hnau/sessions.json'
 
 export default function HnauHome() {
+  const navigate = useNavigate()
   const academy = academies.academies[0]
   const hotNews = newsData.news.slice(0, 3)
   const courses = (coursesData.courses as any[]).slice(0, 4)
@@ -30,7 +31,7 @@ export default function HnauHome() {
   }
 
   const handleSearch = () => {
-    window.location.href = '/hnau/search'
+    navigate('/hnau/search')
   }
 
   return (
@@ -60,9 +61,12 @@ export default function HnauHome() {
               >
                 <Icon icon="zi-more-grid" size={22} />
               </button>
-              <a href="/hnau" className="w-9 h-9 flex items-center justify-center text-white active:opacity-70 transition">
+              <button 
+                onClick={() => navigate('/hnau')}
+                className="w-9 h-9 flex items-center justify-center text-white active:opacity-70 transition bg-transparent border-0"
+              >
                 <Icon icon="zi-close" size={22} />
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -72,9 +76,9 @@ export default function HnauHome() {
           {/* ===== QUICK ACTIONS CARD ===== */}
           <div className="bg-white rounded-xl shadow-sm p-4 mb-3">
             <div className="grid grid-cols-4 gap-3 text-center">
-              <a
-                href="/hnau/news"
-                className="flex flex-col items-center gap-1.5 active:opacity-70 transition"
+              <button
+                onClick={() => navigate('/hnau/news')}
+                className="flex flex-col items-center gap-1.5 active:opacity-70 transition bg-transparent border-0"
               >
                 <div className="w-14 h-14 bg-[#E3F2FD] rounded-2xl flex items-center justify-center">
                   <Icon icon="zi-notif" size={26} className="text-[#005EB8]" />
@@ -82,11 +86,11 @@ export default function HnauHome() {
                 <div className="text-[11px] font-medium text-gray-700 leading-tight">
                   Tin tức
                 </div>
-              </a>
+              </button>
               
-              <a
-                href="/hnau/admissions"
-                className="flex flex-col items-center gap-1.5 active:opacity-70 transition"
+              <button
+                onClick={() => navigate('/hnau/admissions')}
+                className="flex flex-col items-center gap-1.5 active:opacity-70 transition bg-transparent border-0"
               >
                 <div className="w-14 h-14 bg-[#E3F2FD] rounded-2xl flex items-center justify-center">
                   <Icon icon="zi-edit" size={26} className="text-[#005EB8]" />
@@ -94,11 +98,11 @@ export default function HnauHome() {
                 <div className="text-[11px] font-medium text-gray-700 leading-tight">
                   Tuyển sinh
                 </div>
-              </a>
+              </button>
               
-              <a
-                href="/hnau/schedule"
-                className="flex flex-col items-center gap-1.5 active:opacity-70 transition"
+              <button
+                onClick={() => navigate('/hnau/schedule')}
+                className="flex flex-col items-center gap-1.5 active:opacity-70 transition bg-transparent border-0"
               >
                 <div className="w-14 h-14 bg-[#E3F2FD] rounded-2xl flex items-center justify-center">
                   <Icon icon="zi-calendar" size={26} className="text-[#005EB8]" />
@@ -106,7 +110,7 @@ export default function HnauHome() {
                 <div className="text-[11px] font-medium text-gray-700 leading-tight">
                   Đặt lịch
                 </div>
-              </a>
+              </button>
               
               <button
                 onClick={handleOpenChat}
@@ -123,13 +127,16 @@ export default function HnauHome() {
           </div>
 
           {/* ===== BANNER ===== */}
-          <a href="/hnau/admissions" className="block mb-3">
+          <button 
+            onClick={() => navigate('/hnau/admissions')} 
+            className="block mb-3 w-full active:opacity-70 transition bg-transparent border-0 p-0"
+          >
             <img
               src={academy.coverUrl}
               alt="Banner"
               className="w-full h-44 object-cover rounded-xl shadow-sm"
             />
-          </a>
+          </button>
 
           {/* ===== QUAN TÂM OA ===== */}
           <div className="bg-gradient-to-br from-blue-50 via-white to-blue-50 border border-blue-100 rounded-xl p-3.5 mb-3 shadow-sm">
@@ -164,17 +171,20 @@ export default function HnauHome() {
             <h2 className="text-[15px] font-bold text-gray-900">
               Tin tuyển sinh
             </h2>
-            <a href="/hnau/admissions" className="text-[#005EB8] text-xs font-semibold flex items-center gap-0.5">
+            <button 
+              onClick={() => navigate('/hnau/admissions')} 
+              className="text-[#005EB8] text-xs font-semibold flex items-center gap-0.5 bg-transparent border-0 active:opacity-70 transition"
+            >
               Xem thêm
-            </a>
+            </button>
           </div>
 
           <div className="space-y-2.5 mb-4">
             {hotNews.slice(0, 1).map((n: any) => (
-              <a
+              <button
                 key={n.id}
-                href={`/hnau/news/${n.id}`}
-                className="block bg-white rounded-xl overflow-hidden shadow-sm active:opacity-90 transition"
+                onClick={() => navigate(`/hnau/news/${n.id}`)}
+                className="block bg-white rounded-xl overflow-hidden shadow-sm active:opacity-90 transition w-full text-left border-0 p-0"
               >
                 <img
                   src={n.imageUrl || academy.coverUrl}
@@ -190,7 +200,7 @@ export default function HnauHome() {
                     {n.title}
                   </h3>
                 </div>
-              </a>
+              </button>
             ))}
           </div>
 
@@ -199,17 +209,20 @@ export default function HnauHome() {
             <h2 className="text-[15px] font-bold text-gray-900">
               Tin tức mới nhất
             </h2>
-            <a href="/hnau/news" className="text-[#005EB8] text-xs font-semibold">
+            <button 
+              onClick={() => navigate('/hnau/news')} 
+              className="text-[#005EB8] text-xs font-semibold bg-transparent border-0 active:opacity-70 transition"
+            >
               Tất cả
-            </a>
+            </button>
           </div>
 
           <div className="grid grid-cols-2 gap-2.5 mb-4">
             {hotNews.slice(1, 5).map((n: any) => (
-              <a
+              <button
                 key={n.id}
-                href={`/hnau/news/${n.id}`}
-                className="block bg-white rounded-xl overflow-hidden shadow-sm active:opacity-90 transition"
+                onClick={() => navigate(`/hnau/news/${n.id}`)}
+                className="block bg-white rounded-xl overflow-hidden shadow-sm active:opacity-90 transition w-full text-left border-0 p-0"
               >
                 <img
                   src={n.imageUrl || academy.coverUrl}
@@ -225,7 +238,7 @@ export default function HnauHome() {
                     {n.publishedAt?.slice(5) || ''}
                   </div>
                 </div>
-              </a>
+              </button>
             ))}
           </div>
 

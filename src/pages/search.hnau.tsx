@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react'
-import { Page, Icon } from 'zmp-ui'
+import { Page, Icon, useNavigate } from 'zmp-ui'
 import { PageContainer } from '@/components'
 import coursesData from '@/mock/hnau/courses.json'
 import newsData from '@/mock/hnau/news.json'
 
 export default function HnauSearch() {
+  const navigate = useNavigate()
   const [q, setQ] = useState('')
   const [activeTab, setActiveTab] = useState<'courses' | 'news'>('courses')
   const courses = coursesData.courses
@@ -36,9 +37,12 @@ export default function HnauSearch() {
         {/* ===== HEADER ===== */}
         <div className="bg-gradient-to-r from-[#F37021] to-[#FF8C42] px-4 pt-6 pb-8 -mx-4 -mt-4 mb-4">
           <div className="flex items-center gap-3 mb-4">
-            <a href="/hnau" className="text-white">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="text-white bg-transparent border-0 active:opacity-70 transition"
+            >
               <Icon icon="zi-arrow-left" size={24} />
-            </a>
+            </button>
             <h2 className="text-2xl font-bold text-white flex-1">Tìm kiếm</h2>
           </div>
           

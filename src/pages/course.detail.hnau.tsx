@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page } from 'zmp-ui'
+import { Page, useNavigate } from 'zmp-ui'
 import { useParams } from 'react-router-dom'
 import { PageContainer } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
@@ -8,6 +8,7 @@ import coursesData from '@/mock/hnau/courses.json'
 import sessionsData from '@/mock/hnau/sessions.json'
 
 export default function HnauCourseDetail() {
+  const navigate = useNavigate()
   const { id } = useParams()
   const course = coursesData.courses.find((c: any) => c.id === id)
   const sessions = sessionsData.sessions.filter((s: any) => s.courseId === id)
@@ -32,10 +33,15 @@ export default function HnauCourseDetail() {
             ))}
           </div>
 
-          <a href={`/hnau/register?course=${course.id}`} className="mt-4 inline-block bg-primary text-white py-2 px-4 rounded-md">Đăng ký</a>
+          <button 
+            onClick={() => navigate(`/hnau/register?course=${course.id}`)} 
+            className="mt-4 inline-block bg-primary text-white py-2 px-4 rounded-md border-0 active:opacity-80 transition"
+          >
+            Đăng ký
+          </button>
         </div>
       </PageContainer>
-  <HnauTabs activeTab="courses" />
+      <HnauTabs activeTab="courses" />
     </Page>
   )
 }
