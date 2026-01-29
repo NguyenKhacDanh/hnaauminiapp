@@ -24,9 +24,8 @@ export default function HnauNotifications() {
     <Page restoreScroll className="bg-[#F0F2F5] overflow-x-hidden">
       <PageContainer>
         {/* ===== HEADER ===== */}
-        <div className="bg-[#005EB8] px-4 pt-6 pb-6 -mx-4 -mt-4 mb-3">
-          <h2 className="text-lg font-semibold text-white text-center">Thông báo</h2>
-          <p className="text-white/80 text-xs mt-1 text-center">Cập nhật tin tức và chiêu sinh mới nhất</p>
+        <div className="bg-[#005EB8] px-4 pt-4 pb-3 -mx-4 -mt-4 mb-3">
+          <h2 className="text-base font-semibold text-white text-center">Thông báo</h2>
         </div>
 
         <section className="px-3 pb-20">

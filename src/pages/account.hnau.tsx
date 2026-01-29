@@ -63,14 +63,14 @@ export default function HnauAccount() {
   return (
     <Page restoreScroll className="bg-[#F0F2F5] overflow-x-hidden">
       <PageContainer>
-        <div className="bg-[#005EB8] px-4 pt-6 pb-16 -mx-4 -mt-4">
+        <div className="bg-[#005EB8] px-4 pt-4 pb-12 -mx-4 -mt-4">
           <div className="flex items-center justify-center relative">
-            <h2 className="text-lg font-semibold text-white">Cá nhân</h2>
+            <h2 className="text-base font-semibold text-white">Cá nhân</h2>
             {saved && <span className="absolute right-0 text-xs text-white bg-green-500 px-2 py-1 rounded">✓ Đã lưu</span>}
           </div>
         </div>
 
-        <section className="px-3 pb-20 -mt-12">
+        <section className="px-3 pb-20 -mt-8">{/* Giảm overlap từ -mt-12 xuống -mt-8 */}
           <div className="bg-white rounded-xl shadow-sm p-4 mb-3">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-14 h-14 bg-gradient-to-br from-[#005EB8] to-[#0066CC] rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">

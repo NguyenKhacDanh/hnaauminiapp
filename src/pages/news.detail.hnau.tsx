@@ -44,15 +44,15 @@ export default function HnauNewsDetail() {
   return (
     <Page restoreScroll className="bg-[#FFF5F0]">
       <PageContainer>
-        <div className="bg-gradient-to-r from-[#F37021] to-[#FF8C42] px-4 pt-6 pb-8 -mx-4 -mt-4 mb-4">
+        <div className="bg-gradient-to-r from-[#F37021] to-[#FF8C42] px-4 pt-4 pb-6 -mx-4 -mt-4 mb-4">
           <div className="flex items-center gap-3">
             <button 
               onClick={() => navigate(-1)} 
-              className="text-white bg-transparent border-0 active:opacity-70 transition"
+              className="text-white bg-transparent border-0 active:opacity-70 transition flex items-center justify-center w-8 h-8"
             >
               <Icon icon="zi-arrow-left" size={24} />
             </button>
-            <div className="text-sm text-white/90">Chi tiết tin tức</div>
+            <div className="text-sm font-semibold text-white">Chi tiết tin tức</div>
           </div>
         </div>
 

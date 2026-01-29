@@ -66,7 +66,7 @@ export default function HnauSessions() {
 
   // Fetch academies on mount
   useEffect(() => {
-    fetch('http://localhost:55777/api/Common/GetHocVien')
+    fetch('https://crmportalreport.hocvienaau.edu.vn/api/Common/GetHocVien')
       .then(res => res.json())
       .then(data => {
         setAcademies(data || [])
@@ -85,7 +85,7 @@ export default function HnauSessions() {
     
     setLoading(true)
     
-    fetch('http://localhost:55777/api/report/admissions', {
+    fetch('https://crmportalreport.hocvienaau.edu.vn/api/report/admissions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -127,9 +127,8 @@ export default function HnauSessions() {
     <Page restoreScroll className="bg-[#F0F2F5] overflow-x-hidden">
       <PageContainer>
         {/* ===== HEADER ===== */}
-        <div className="bg-[#005EB8] px-4 pt-6 pb-6 -mx-4 -mt-4 mb-3">
-          <h2 className="text-lg font-semibold text-white text-center">Lịch chiêu sinh</h2>
-          <p className="text-white/80 text-xs mt-1 text-center">Tìm kiếm lịch khai giảng các khóa học</p>
+        <div className="bg-[#005EB8] px-4 pt-4 pb-3 -mx-4 -mt-4 mb-3">
+          <h2 className="text-base font-semibold text-white text-center">Lịch chiêu sinh</h2>
         </div>
 
         <section className="px-3 pb-20">
