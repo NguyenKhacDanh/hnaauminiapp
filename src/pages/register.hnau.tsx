@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Page } from 'zmp-ui'
+import { Page, useNavigate } from 'zmp-ui'
 import { useLocation } from 'react-router-dom'
 import { PageContainer } from '@/components'
 import { HnauTabs } from '@/components/hnau-tabs'
@@ -9,6 +9,7 @@ function useQuery() {
 }
 
 export default function HnauRegister() {
+  const navigate = useNavigate()
   const q = useQuery()
   const courseId = q.get('course') || ''
   // mock auto-fill from Zalo (static sample)
@@ -22,7 +23,7 @@ export default function HnauRegister() {
     // mock submit: show success toast via alert
     alert(`Đăng ký thành công cho khóa ${courseId} - ${form.name}`)
     // redirect to dashboard
-    window.location.href = '/hnau/dashboard'
+    navigate('/hnau/dashboard')
   }
 
   return (
